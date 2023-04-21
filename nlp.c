@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #define MAX_WORD_LENGTH 100
 #define MAX_NUM_WORDS 20
@@ -35,7 +36,7 @@ int is_word_in_dict(char *word) {
    while (fgets(line, MAX_WORD_LENGTH, fp)) {
       // Remove newline character from line
       line[strcspn(line, "\n")] = 0;
-     
+      
       if (strcmp(word, line) == 0) {
          fclose(fp);
          return 1; // true
@@ -65,7 +66,7 @@ void remove_suffixes(char words[MAX_NUM_WORDS][MAX_WORD_LENGTH], int num_words) 
 }
 
 int main() {
-   char sentence[2000] = "This is a sentence with the very purpose of testing my coding skills";
+   char sentence[2000] = "THIS is a Long sentence I'm writing to be checking my coding skills Man";
    char words[MAX_NUM_WORDS][MAX_WORD_LENGTH];
 
    // Split the sentence into words
@@ -73,6 +74,10 @@ int main() {
    char *token = strtok(sentence, " ");
    while (token != NULL && num_words < MAX_NUM_WORDS) {
       if (!is_stopword(token)) {
+         // Convert all capital letters to non-capital letters
+         for (int i = 0; i < strlen(token); i++) {
+            token[i] = tolower(token[i]);
+         }
          strcpy(words[num_words], token);
          num_words++;
       }
