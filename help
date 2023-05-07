@@ -1,0 +1,12 @@
+> does it relies on third parties?
+it's not.
+> Is it fully local hosted?
+yes.
+Use this to run your 7B ggml model.
+https://github.com/LostRuins/koboldcpp
+https://github.com/Cohee1207/SillyTavern
+1-st try recommended models :
+1. https://huggingface.co/eachadea/ggml-gpt4all-7b-4bit/tree/main
+2. https://huggingface.co/camelids/llama-7b-ggml-q5_0
+3. https://huggingface.co/TheBloke/WizardLM-7B-uncensored-GGML
+Note : Some of them will not follow char descriptions, and they tend to insert unnecessary crap mid-conservation.
